@@ -21,8 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
     path('html/add', views.html_add, name='contact_form'),
-    path('html/add/save', views.html_add_save, name='save_contact'),
+    path('add/save', views.html_add_save, name='save_contact'),
     path('html/edit', views.html_edit, name='edit_form'),
-    path('html/edit/save', views.html_edit_save, name='edit_contact'),
-
+    path('edit/save', views.html_edit_save, name='edit_contact'),    
 ]
