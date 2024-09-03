@@ -19,5 +19,7 @@ from django.urls import path
 from Contact import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home),
+    path('', views.home, name='home'),
+    path('html/add', views.html_add, name='contact_form'),
+    path('html/add/save', views.html_add_save, name='save_contact'),
 ]
