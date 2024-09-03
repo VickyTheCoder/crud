@@ -6,7 +6,7 @@ class Person(models.Model):
     name = models.CharField(max_length=50)
     dob = models.DateField()
     email = models.EmailField()
-    mobile = models.CharField(30)
+    mobile = models.CharField(max_length=30)
     dp_pic = models.ImageField(upload_to="images/")
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
