@@ -25,4 +25,5 @@ urlpatterns = [
     path('html/edit', views.html_edit, name='edit_form'),
     path('edit/save', views.html_edit_save, name='edit_contact'),
     path('html/read', views.html_read, name='read'),
+    path('html/delete', views.html_delete, name='delete'),
 ]

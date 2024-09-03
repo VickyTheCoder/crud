@@ -83,3 +83,16 @@ def html_read(request):
             res = str(cur)
             res = "<br>".join(res.split("\n"))
             return HttpResponse(res)
+
+def html_delete(request):
+    if request.method == 'GET':
+        return render(request, 'delete_contact.html')
+    elif request.method == 'POST':
+        adr = request.POST.get('aadhar')
+        try:
+            cur = Person.objects.get(aadhar=adr)
+            cur.delete()
+        except:
+            return HttpResponse("No Such Contact({adr})")
+        else:
+            return HttpResponse(f"Contact({adr}) deleted")
