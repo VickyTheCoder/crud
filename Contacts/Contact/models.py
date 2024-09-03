@@ -10,3 +10,14 @@ class Person(models.Model):
     dp_pic = models.ImageField(upload_to="images/")
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        ret = f"""
+        aadhar: {self.aadhar}
+        name: {self.name}
+        DOB: {self.dob}
+        email: {self.email}
+        mobile: {self.mobile}
+        dp pic: {self.dp_pic}
+        """
+        return ret

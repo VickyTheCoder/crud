@@ -23,5 +23,6 @@ urlpatterns = [
     path('html/add', views.html_add, name='contact_form'),
     path('add/save', views.html_add_save, name='save_contact'),
     path('html/edit', views.html_edit, name='edit_form'),
-    path('edit/save', views.html_edit_save, name='edit_contact'),    
+    path('edit/save', views.html_edit_save, name='edit_contact'),
+    path('html/read', views.html_read, name='read'),
 ]

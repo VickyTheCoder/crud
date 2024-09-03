@@ -70,3 +70,16 @@ def html_edit_save(request):
     edited = ", ".join(edited)
     return HttpResponse(f"Edited {edited} for {adr}")
 
+def html_read(request):
+    if request.method == 'GET':
+        return render(request, 'read_contact.html')
+    elif request.method == 'POST':
+        adr = request.POST.get('aadhar')
+        try:
+            cur = Person.objects.get(aadhar=adr)
+        except:
+            return HttpResponse("No Such Contact({adr})")
+        else:
+            res = str(cur)
+            res = "<br>".join(res.split("\n"))
+            return HttpResponse(res)
