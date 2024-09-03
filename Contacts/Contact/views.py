@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse
 from Contact.models import Person
-from Contact.forms import PersonForm
+from Contact.forms import PersonForm, PersonForm2
 
 # Create your views here.
 def home(request):
@@ -38,7 +38,7 @@ def html_add_save(request):
     return HttpResponse(status)
 
 def html_edit(request):
-    return render(request, 'edit_contact.html', {'form': PersonForm})
+    return render(request, 'edit_contact.html', {'form': PersonForm2})
 
 def html_edit_save(request):
     edited = []
@@ -65,7 +65,7 @@ def html_edit_save(request):
         for col_name, col_val in cols:
             if col_val:
                 edited.append(col_name)
-                eval(f"cur.{col_name} = {col_val}")
+                exec(f"cur.{col_name} = '{col_val}'")
         cur.save()
     edited = ", ".join(edited)
     return HttpResponse(f"Edited {edited} for {adr}")
